@@ -1,0 +1,42 @@
+<h3>Criar sala</h3>
+<div [hidden]="submitted" style="width: 400px;" >
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="room.name" #roomName="ngModel" [ngClass]="{'is-invalid': roomName.invalid}" required name="name">
+      <div class="invalid-feedback">
+        <span>Nome da sala é obrigatório</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">data</label>
+      <input type="text" class="form-control" id="date" [(ngModel)]="room.date" #roomDate="ngModel" [ngClass]="{'is-invalid': roomDate.invalid}" required name="date" type="date">
+      <div class="invalid-feedback">
+        <span>Data da sala é obrigatório</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Hora inicial</label>
+      <input type="text" class="form-control" id="startHour" [(ngModel)]="room.startHour" #roomStartHour="ngModel" [ngClass]="{'is-invalid': roomStartHour.invalid}" required name="startHour" type="time">
+      <div class="invalid-feedback">
+        <span>Hora inicial da sala é obrigatório</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Hora final</label>
+        <input type="text" class="form-control" id="endHour" [(ngModel)]="room.endHour" #roomEndHour="ngModel" [ngClass]="{'is-invalid': roomEndHour.invalid}" required name="endHour" type="time">
+        <div class="invalid-feedback">
+          <span>Hora final da sala é obrigatório</span>
+        </div>
+      </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="roomName.invalid || roomDate.invalid || roomStartHour.invalid || roomEndHour.invalid">Enviar</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <button class="btn btn-success" (click)="newRoom()">Adicionar</button> -->
+</div>
